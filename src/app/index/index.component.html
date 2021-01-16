@@ -1,24 +1,53 @@
+<!DOCTYPE html>
 <html>
-<body>
-<DIV class="loginbox">
-	<H1 >Login</H1>
-	<form  [formGroup]="loginForm" autocomplete="off">
-		<div class="textbox">
-			<i class="fas fa-user"></i>
-			<input type="text" placeholder="Username" formControlName="username" class="form-control">
+
+	<head>
+	<title>Library Management System</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  
+
+<body style="background-color:white">
+
+	<div id="bdy">
+		<div id="content">
+			<div class="jumbotron text-center shadow p-4  text-white h-100" style="background-color:#795548;">
+				<h2 class="display-4" style="font-family: monospace;text-transform: capitalize;">RTO Exam Learning
+					Platform</h2>
+			</div>
+
+			<div class="container  my-auto col-sm-3  pt-5">
+				<form [formGroup]="loginForm" autocomplete="off">
+					<div class="textbox">
+						<i class="fas fa-user"></i>
+						<input type="text" placeholder="Username" formControlName="username" class="form-control">
+					</div>
+					<br>
+					<div class="textbox">
+						<i class="fas fa-lock"></i>
+						<input type="password" placeholder="Password" formControlName="password"
+							class="form-control"><br>
+					</div>
+					<input type="button" value="login" class="btn btn-primary" (click)="login()">
+				</form>
+				<!--<a href="/signup"> <button value="signup" class="smallbutton">Sign up</button></a> -->
+				<div style="color: red;text-align:center;" *ngIf="avail">
+					<p> {{msg}}</p>
+				</div> 
+
+				<a href="home" class="float-right mt-2">Login as guest</a>
+				<a href="signUp" class="mt-2">Register</a>
+			</div>
+
 		</div>
-		<br>
-		<div class="textbox">
-			<i class="fas fa-lock"></i>
-			<input type="password" placeholder="Password" formControlName="password" class="form-control"><br>
-		</div>
-		<br>
-		<input type="button" value="login" class="smallbutton " (click)="login()">
-	</form>
-	<a href="/signup">	<button value="signup" class="smallbutton">Sign up</button></a>
-	<div style="color: red;text-align:center;" *ngIf="avail">
-                <p> {{msg}}</p>
-    </div>
-</DIV>
+
+		<footer id="footer">
+			<p>Copyright © 2021</p>
+			<p>Contact Utsav Parakhiya : +919726247049</p>
+		</footer>
+
+	</div>
 </body>
+
 </html>

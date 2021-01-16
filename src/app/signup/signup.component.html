@@ -1,30 +1,47 @@
 <html>
-<body>
-<DIV class="loginbox justify-content-center">
-		<H1 >SignUp</H1>
-		<form  [formGroup]="signupForm" autocomplete="off">
-            <div class="textbox">
-                <i class="fas fa-user"></i>
-                <input type="text" placeholder="Username" formControlName="username" class="form-control">
+
+<body style="background-color:white">
+    <div id="bdy">
+        <div id="content">
+
+            <div class="jumbotron text-center shadow p-4  text-white h-100" style="background-color:#795548;">
+                <h2 class="display-4" style="font-family: monospace;text-transform: capitalize;">RTO Exam Learning
+                    Platform</h2>
             </div>
-            <div class="textbox">
-                <i class="fas fa-envelope"></i>	
-                <input type="email" placeholder="Email" formControlName="email" class="form-control">
+
+            <div class="container col-sm-3 pb-4 border shadow"
+                style="background-color: whitesmoke;box-shadow: 1px 1px 20px lightgray;">
+                <h1 class="mt-4">Sign Up</h1>
+                <form [formGroup]="signupForm" autocomplete="off">
+                    <div class="textbox">
+                        <i class="fas fa-user"></i>
+                        <input type="text" placeholder="Username" formControlName="username" class="form-control">
+                    </div>
+                    <div class="textbox">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" placeholder="Email" formControlName="email" class="form-control">
+                    </div>
+                    <div class="textbox">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" placeholder="Password" formControlName="password" class="form-control">
+                    </div>
+                    <div class="textbox">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" placeholder="Re-enter Password" formControlName="repassword"
+                            class="form-control"><br>
+                    </div>
+                    <input type="button" value="Signup" class="form-control btn btn-primary" (click)="register()">
+                </form>
             </div>
-            <div class="textbox">
-                <i class="fas fa-lock"></i>
-                <input type="password" placeholder="Password" formControlName="password" class="form-control">
-            </div>
-            <div class="textbox">
-                <i class="fas fa-lock"></i>
-                <input type="password" placeholder="Re-enter Password" formControlName="repassword" class="form-control"><br>
-            </div>
-			<input type="button" value="Signup" class="smallbutton " (click)="register()">
-		</form>
-		<a href="/index"><button value="signup" class="smallbutton">Back</button></a>
-        <div style="color: red;text-align:center;" *ngIf="avail">
-                <p> {{msg}}</p>
         </div>
-	</DIV>
+
+        <footer id="footer">
+            <p>Copyright © 2021</p>
+            <p>Contact Utsav Parakhiya : +919726247049</p>
+        </footer>
+    </div>
+
 </body>
+
+
 </html>
