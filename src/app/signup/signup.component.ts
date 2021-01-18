@@ -42,10 +42,15 @@ export class SignupComponent implements OnInit {
       this.avail = true
       return; 
     }
+
     this._userService.register(JSON.stringify(this.signupForm.value))
       .subscribe(
         data => {
-          console.log(data);
+          if(!data){
+            this.msg = "Username already exists !"
+            this.avail = true
+            return;
+          }
           this.cookieservice.set("username",this.signupForm.controls.username.value);
           this._router.navigate(['/home']);
         },

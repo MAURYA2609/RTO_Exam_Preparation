@@ -12,12 +12,10 @@ router.post('/signup', (req, res, next) => {
     addToDB(req, res);
 });
 async function addToDB(req, res) {
-   /* User.find({username:req.params.username})
-    .exec(function(user){
+
+    User.findOne({username:req.body.username},(err,user)=>{
         if(user){
-            res.json({
-                msg: 'Username already exists'
-            })
+            res.send(false)
         }
         else {
             var user = new User({
@@ -27,33 +25,17 @@ async function addToDB(req, res) {
         
             })
           
-            user.save((error, registeredUser) => {
+            user.save(function(error) {
                 if (error) {
                     console.log(error)
-                } else {
-                    res.status(200).send(registeredUser)
                 }
+                res.send(true)
             })
         }
-    }); */
-
-    var user = new User({
-        username: req.body.username,
-        email: req.body.email,
-        password: User.hashPassword(req.body.password)
-
-    })
-  
-    user.save((error, registeredUser) => {
-        if (error) {
-            console.log(error)
-        } else {
-            res.status(200).send(registeredUser)
-        }
-    })
+    });
 }
 
-router.post('/login', function(req, res, next) {
+router.post('/login', function(req, res) {
     User.findOne({ username: req.body.username }, (err, user) => {
         if (err) {
             console.log("in error");
