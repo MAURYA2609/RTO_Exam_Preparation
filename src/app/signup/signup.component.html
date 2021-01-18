@@ -32,6 +32,9 @@
                     </div>
                     <input type="button" value="Signup" class="form-control btn btn-primary" (click)="register()">
                 </form>
+                <div style="color: red;text-align:center;" *ngIf="avail">
+					<p> {{msg}}</p>
+				</div>
             </div>
         </div>
 
