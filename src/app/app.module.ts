@@ -11,13 +11,16 @@ import { HttpClientModule } from '@angular/common/http';
 import { SignupComponent } from './signup/signup.component';
 import { HomeComponent } from './home/home.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AdminhomeComponent } from './admin/adminhome/adminhome.component';
+// import { AdminhomeComponent } from './adminhome/adminhome.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     IndexComponent,
     SignupComponent,
-    HomeComponent
+    HomeComponent,
+    AdminhomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -28,6 +31,14 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ReactiveFormsModule,
     NgbModule
   ],
+  exports: [
+    BrowserModule,
+    HttpClientModule,
+    AppRoutingModule,
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NgbModule],
   providers: [],
   bootstrap: [AppComponent]
 })

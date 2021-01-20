@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+	<title>RTO Exam Learning</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  
+<body style="background-color:white">
+
+	<div id="bdy">
+		<div id="content">
+			<div class="jumbotron text-center shadow p-4  text-white h-100" style="background-color:#795548;">
+				<h2 class="display-4" style="font-family: monospace;text-transform: capitalize;">RTO Exam Learning
+					Platform</h2>
+			</div>
+
+			<header>
+                <nav class="navbar navbar-expand-md navbar-dark" style="background-color: #2D332A;">
+                    <div class="collapse navbar-collapse" id="navbarCollapse">
+                        <div class="navbar-nav">
+                            <a href="/adminHome" class="nav-link active">Home</a>
+                            <a (click)="logout()" class=" nav-link" >Logout</a>
+                        </div>
+                    </div>
+                </nav>
+            </header>
+            
+            <form [formGroup]="questionForm" autocomplete="off">
+                <div class="questionbox">
+                    <div class="question form-group">
+                        <textarea formControlName="question" placeholder="Enter a question here" required rows="5" class="form-control"></textarea> <br> 
+                    </div><br>
+                    <div class="answer form-group">
+                        <input type="text" formControlName="optionA" placeholder="Option A" class="form-control" required><br>
+                    </div>
+                    <div class="answer form-group">
+                        <input type="text" formControlName="optionB" placeholder="Option B" class="form-control" required><br>
+                    </div>
+                    <div class="answer form-group">
+                        <input type="text" formControlName="optionC" placeholder="Option C" class="form-control" required><br>
+                    </div>
+                    <div class="answer form-group">
+                        <input type="text" formControlName="optionD" placeholder="Option D" class="form-control" required><br>
+                    </div>
+                    <div class="setDropdown">
+                        <select  name="correct" class="dropdown custom-select"  [(ngModel)]="correct" [ngModelOptions]="{standalone: true}" data-dropdown-auto="false">
+                            <option disabled>&nbsp;&nbsp;&nbsp;Correct Answer</option>
+                            <option value="A">&nbsp;&nbsp;&nbsp;A</option>
+                            <option value="B">&nbsp;&nbsp;&nbsp;B</option>
+                            <option value="C">&nbsp;&nbsp;&nbsp;C</option>
+                            <option value="D">&nbsp;&nbsp;&nbsp;D</option>
+                        </select>
+                        
+                    </div>
+            
+                    </div>
+                    <input type="button" class="btn-primary" value="Add question" (click)="addQuestion()" class="addbtn">
+            </form>
+
+		</div>
+
+		<footer id="footer">
+			<p>Copyright © 2021</p>
+			<p>Contact Utsav Parakhiya : +919726247049</p>
+		</footer>
+
+	</div>
+</body>
+</html>

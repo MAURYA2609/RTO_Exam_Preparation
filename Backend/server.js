@@ -17,6 +17,7 @@ con.on('open', () => {
 })
 
 app.use('/users', appRoutes);
+app.use('/questions', appRoutes);
 app.get('/', (req, res) => {
     res.send("This is server....");
 });

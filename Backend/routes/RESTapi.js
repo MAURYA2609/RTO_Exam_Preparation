@@ -1,6 +1,7 @@
 var bcrypt = require('bcrypt');
 const express = require('express');
 var User = require('../models/users');
+var Question = require('../models/questions');
 var router = express.Router();
 
 router.get('/', (req, res, next) => {
@@ -76,6 +77,40 @@ router.post('/login', function(req, res) {
     })
 });
 
+router.post('/addQuestion/:correct', (req, res) => {
+    addQuestion(req, res);
+});
+async function addQuestion(req, res) {
+    console.log("UTSAV");
+    if(req.params.correct=='A'){
+        answer=req.body.optionA;
+    }
+    else if(req.params.correct=='B'){
+        answer=req.body.optionB;
+    }
+    else if(req.params.correct=='C'){
+        answer=req.body.optionC;
+    }
+    else if(req.params.correct=='D'){
+        answer=req.body.optionD;
+    }
+    var questions = new Question({
+        question: req.body.question,
+        optionA: req.body.optionA,
+        optionB: req.body.optionB,
+        optionC: req.body.optionC,
+        optionD: req.body.optionD,
+        correct: answer,
+    })
+
+    questions.save((error, registeredUser) => {
+        if (error) {
+            console.log(error)
+        } else {
+            res.status(200).send(registeredUser)
+        }
+    })
+}
 
 
 module.exports = router;
