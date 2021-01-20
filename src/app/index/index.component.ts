@@ -37,7 +37,7 @@ export class IndexComponent implements OnInit {
 
     if(this.loginForm.controls.username.value == "user10702" && this.loginForm.controls.password.value == "user10702"){
       this.cookieservice.set("username",this.loginForm.controls.username.value);
-      this._router.navigate(['/home']);
+      this._router.navigate(['/adminHome']);
     }
     else{
 
