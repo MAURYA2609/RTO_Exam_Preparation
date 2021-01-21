@@ -1,3 +1,4 @@
+import { QuestionListComponent } from './admin/question-list/question-list.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -12,7 +13,6 @@ import { SignupComponent } from './signup/signup.component';
 import { HomeComponent } from './home/home.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AdminhomeComponent } from './admin/adminhome/adminhome.component';
-// import { AdminhomeComponent } from './adminhome/adminhome.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +21,7 @@ import { AdminhomeComponent } from './admin/adminhome/adminhome.component';
     SignupComponent,
     HomeComponent,
     AdminhomeComponent,
+    QuestionListComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +39,8 @@ import { AdminhomeComponent } from './admin/adminhome/adminhome.component';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    NgbModule],
+    NgbModule,
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

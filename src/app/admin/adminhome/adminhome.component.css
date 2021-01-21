@@ -1,22 +1,33 @@
 .myDiv {
     border-radius: 10px;
-    background-color: rgb(255, 255, 255);
+    background-color: gray(255, 255, 255);
     text-align: center;
     box-shadow: 1px 1px 20px gray;
 }
 
 .btn {
     font-size: 16px;
-    padding: 5px 15px;
+    /* padding: 5px 15px; */
     color: #795548;
-    background: #cccccc;
+    background:rgb(233, 229, 229);
     border: 0 none;
     cursor: pointer;
     -webkit-border-radius: 5px;
     border-radius: 5px; 
+    font-family: 'Lucida Sans', sans-serif;
+    /* font-size: 15px; */
 }
 
-input[type=text],[type=password]{    
+p{
+    font-size: 16px;
+    color: #795548;
+    border: 0 none;
+    -webkit-border-radius: 5px;
+    border-radius: 5px; 
+    font-family: 'Lucida Sans', sans-serif;
+}
+
+input[type=text]{    
     border: none;
     color: #795548;
     border-bottom: 0.5px solid #795548;
@@ -29,7 +40,20 @@ input[type=text],[type=password]{
     margin-bottom: 15px;
 }
 
-input[type=text]:hover,[type=password]:hover,.btn:hover{
+textarea{    
+    border: none;
+    color: #795548;
+    border: 0.5px solid #795548;
+    background: transparent;
+    outline: none;
+    font-family: 'Lucida Sans', sans-serif;
+    letter-spacing: 1.5px;
+    word-spacing: 2px;
+    font-size: 15px;
+    margin-bottom: 15px;
+}
+
+input[type=text]:hover,textarea:hover,.btn:hover{
     box-shadow: 1px 1px 10px black;
     cursor: pointer;
 }
@@ -58,10 +82,16 @@ font-size: 16px;
 }
 
 a:link, a:visited {
-    /* background-color: #f44336; */
-    /* color: white; */
     padding: 5px 15px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
   }
+
+  h1 {
+    background-color: #795548;
+    color: whitesmoke;
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-weight: 400;
+    padding: 15px;
+}   

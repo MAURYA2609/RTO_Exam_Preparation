@@ -112,5 +112,20 @@ async function addQuestion(req, res) {
     })
 }
 
+router.post('/questionList', function(req, res){
+    console.log("Entering to get question List");
+    Question.find({})
+    .exec(function(err,questions){
+        if(err){
+            console.log("Questions can't be fetched");
+        }
+        else{
+            console.log(questions);
+            res.json({
+                ALLquestions: questions
+            })
+        }
+    });
+});
 
 module.exports = router;
