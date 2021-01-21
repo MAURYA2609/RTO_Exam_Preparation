@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+	<title>RTO Exam Learning</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  
+<body style="background-color:white">
+
+	<div id="bdy">
+		<div id="content">
+			<div class="jumbotron text-center shadow p-4  text-white h-100" style="background-color:#795548;">
+				<h2 class="display-4" style="font-family: monospace;text-transform: capitalize;">RTO Exam Learning
+					Platform</h2>
+			</div>
+
+			<header>
+                <nav class="navbar navbar-expand-md navbar-dark" style="background-color: #2D332A;">
+                    <div class="collapse navbar-collapse" id="navbarCollapse">
+                        <div class="navbar-nav">
+                            <a href="/adminHome" class="nav-link active">Home</a>
+                            <a (click)="logout()" class=" nav-link" >Logout</a>
+                        </div>
+                    </div>
+                </nav>
+            </header>
+            
+            <div *ngFor="let que of ALLquestions">
+                <div class="newquestion">
+                    <p class="addedQ">QUESTION : {{que.question}} </p>
+                    <p class="opt"> A)  {{que.optionA}}</p>
+                    <p class="opt"> B)  {{que.optionB}}</p>
+                    <p class="opt"> C)  {{que.optionC}}</p>
+                    <p class="opt"> D)  {{que.optionD}}</p>
+                    <p class="corrA"> Correct : {{que.correct}}</p>
+                </div>
+            </div>
+		</div>
+
+		<footer id="footer">
+			<p>Copyright © 2021</p>
+			<p>Contact Utsav Parakhiya : +919726247049</p>
+		</footer>
+
+	</div>
+</body>
+</html>

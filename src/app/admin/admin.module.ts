@@ -5,9 +5,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from '../app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { QuestionListComponent } from './question-list/question-list.component';
 
 @NgModule({
-  declarations: [AdminhomeComponent],
+  declarations: [AdminhomeComponent, QuestionListComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
