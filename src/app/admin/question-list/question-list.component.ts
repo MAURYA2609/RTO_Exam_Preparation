@@ -26,9 +26,6 @@ export class QuestionListComponent implements OnInit {
 
     this._questionService.questionList()
     .subscribe(
-      // console.log(data);
-      // console.log(data);
-      // console.log(this.ALLquestions)
       data=>{
         console.log(data['ALLquestions']);
         this.ALLquestions=data['ALLquestions']}     
