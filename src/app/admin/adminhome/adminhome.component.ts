@@ -45,7 +45,8 @@ export class AdminhomeComponent implements OnInit {
       .subscribe(
         data => {
           console.log(data);
-          this._router.navigate(['/adminHome']);
+          // this._router.navigate(['/adminHome']);
+          window.location.reload();
         },
         error => { console.error(error) }
       )

@@ -11,16 +11,28 @@
 
     <div id="bdy">
         <div id="content">
-            <div class="jumbotron text-center shadow p-4  text-white h-100" style="background-color:#795548;">
-                <h2 class="display-4" style="font-family: monospace;text-transform: capitalize;">RTO Exam Learning
-                    Platform</h2>
-            </div>
+
+                
+            <nav class="navbar navbar-expand-sm" style="background-color: #795548;">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link h5" routerLink="/adminHome">Add question</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link h5" routerLink="/questionList">Question list</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link h5" routerLink="/" (click)="logout()">Logout</a>
+                    </li>
+                </ul>
+            </nav>
 
 
+            <div class="container  my-auto col-sm-3 myDiv">
 
-            <div class="container  my-auto col-sm-3 pt-4 myDiv">
-
-                <h1 class="mb-5">Add question</h1>
+                <div class="pt-2 mt-5 mb-4">
+                    <h1>Add question</h1>
+                </div>
 
                 <form [formGroup]="questionForm" autocomplete="off">
                     <div class="questionbox">
@@ -47,7 +59,7 @@
                         <div class="setDropdown">
                             <select name="Select correct option" class="dropdown custom-select" [(ngModel)]="correct"
                                 [ngModelOptions]="{standalone: true}" data-dropdown-auto="false">
-                                <option selected disabled>&nbsp;&nbsp;&nbsp;Correct Answer</option>
+                                <option value="Correct Answer" selected>&nbsp;&nbsp;&nbsp;Correct Answer</option>
                                 <option value="A">&nbsp;&nbsp;&nbsp;A</option>
                                 <option value="B">&nbsp;&nbsp;&nbsp;B</option>
                                 <option value="C">&nbsp;&nbsp;&nbsp;C</option>
@@ -57,7 +69,8 @@
 
 
                         <div class="form-group">
-                            <input type="button" class="btn-primary btn form-control mt-5 mb-4" value="Add question" (click)="addQuestion()">
+                            <input type="button" class="btn-primary btn form-control mt-5 mb-4" value="Add question"
+                                (click)="addQuestion()">
                         </div>
                         <!-- </form> -->
                     </div>
