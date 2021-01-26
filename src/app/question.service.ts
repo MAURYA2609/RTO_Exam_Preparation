@@ -21,4 +21,18 @@ export class QuestionService {
     }); 
   }
   
+  testQuestions() {
+    return this.http.post('http://127.0.0.1:4000/questions/testQuestions',  {
+      observe: 'body',
+      headers: new HttpHeaders().append('Content-Type', 'application/json')
+    }); 
+  }
+
+  addScore(username:string,score:number){
+    return this.http.post('http://127.0.0.1:4000/scores/newScore/'+username+'/'+score ,{
+      observe: 'body',
+      headers: new HttpHeaders().append('Content-Type', 'application/json')
+    }); 
+  }
+
 }

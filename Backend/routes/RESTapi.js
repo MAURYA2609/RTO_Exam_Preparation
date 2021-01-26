@@ -2,6 +2,7 @@ var bcrypt = require('bcrypt');
 const express = require('express');
 var User = require('../models/users');
 var Question = require('../models/questions');
+const Scores = require('../models/scores');
 var router = express.Router();
 
 router.get('/', (req, res, next) => {
@@ -127,5 +128,39 @@ router.post('/questionList', function(req, res){
         }
     });
 });
+
+router.post('/testQuestions', function(req, res){
+    
+    Question.find()
+    .exec(function(err,questions){
+        if(err){
+            console.log("Questions can't be fetched");
+        }
+        else{
+            res.json({
+                quizquestions: questions
+            })
+        }
+    });
+})
+
+
+router.post('/newScore/:username/:score', (req, res, next) => {
+    addScore(req, res);
+});
+async function addScore(req, res) {
+    var newscore = new Scores({
+        username: req.params.username,
+        score: req.params.score
+    })
+
+    newscore.save((error, addScore) => {
+        if (error) {
+            console.log(error)
+        } else {
+            res.status(200).send(addScore)
+        }
+    })
+}
 
 module.exports = router;
