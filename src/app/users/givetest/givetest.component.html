@@ -19,11 +19,14 @@
 	</header>
 	<form>
 		<div *ngFor="let que of questions;index as i" class="questionbox" ng-controller="quiz">
-			<h3> Q : {{que.question}}</h3>
-			<p><input type="radio" name="Q{{i}}" [(ngModel)]="answers[i]" value={{que.optionA}} > {{que.optionA}}</p>
-			<p><input type="radio" name="Q{{i}}" [(ngModel)]="answers[i]" value={{que.optionB}}> {{que.optionB}}</p>
-			<p><input type="radio" name="Q{{i}}" [(ngModel)]="answers[i]" value={{que.optionC}}> {{que.optionC}}</p>
-			<p><input type="radio" name="Q{{i}}" [(ngModel)]="answers[i]" value={{que.optionD}}> {{que.optionD}}</p>
+			<h3> Q : {{que.que}}</h3>
+			<div *ngIf="que.hasImg">                
+                <img src="../../../assets/QueImg/{{ que.imgurl }}">                            
+        	</div>
+			<p><input type="radio" name="Q{{i}}" [(ngModel)]="answers[i]" value={{que.op1}} > {{que.op1}}</p>
+			<p><input type="radio" name="Q{{i}}" [(ngModel)]="answers[i]" value={{que.op2}}> {{que.op2}}</p>
+			<p><input type="radio" name="Q{{i}}" [(ngModel)]="answers[i]" value={{que.op3}}> {{que.op3}}</p>
+
 		</div>
 		<input type="button" (click)="getScore()" value="GO" class="button">
 	</form>
