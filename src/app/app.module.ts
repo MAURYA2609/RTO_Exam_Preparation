@@ -13,6 +13,7 @@ import { SignupComponent } from './signup/signup.component';
 import { HomeComponent } from './home/home.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AdminhomeComponent } from './admin/adminhome/adminhome.component';
+import { GivetestComponent } from './users/givetest/givetest.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { AdminhomeComponent } from './admin/adminhome/adminhome.component';
     SignupComponent,
     HomeComponent,
     AdminhomeComponent,
-    QuestionListComponent
+    QuestionListComponent,
+    GivetestComponent
   ],
   imports: [
     BrowserModule,

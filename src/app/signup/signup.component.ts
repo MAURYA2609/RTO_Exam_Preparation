@@ -52,7 +52,7 @@ export class SignupComponent implements OnInit {
             return;
           }
           this.cookieservice.set("username",this.signupForm.controls.username.value);
-          this._router.navigate(['/home']);
+          this._router.navigate(['/userHome']);
         },
         error => console.error(error)
       )

@@ -55,7 +55,7 @@ export class IndexComponent implements OnInit {
             console.log(data['msg']);
             if (data['msg'] == 'Login successfull') {
               this.cookieservice.set("username",this.loginForm.controls.username.value);
-              this._router.navigate(['/home']);
+              this._router.navigate(['/userHome']);
             }
             else {
             this.msg = data['msg'];
