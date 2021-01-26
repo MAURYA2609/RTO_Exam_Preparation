@@ -1,14 +1,13 @@
 var mongoose = require('mongoose');
 
 var QuestionsSchema = mongoose.Schema({
-    question: { type: String, require: true },
-    optionA: { type: String, require: true },
-    optionB: { type: String, require: true },
-    optionC: { type: String, require: true },
-    optionD: { type: String, require: true },
-    correct: { type: String, require: true }
-}, {
-    timestamp: true
+    que: { type: String, require: true },
+    op1: { type: String, require: true },
+    op2: { type: String, require: true },
+    op3: { type: String, require: true },
+    ans: { type: Number, require: true },
+    hasImg: { type: Boolean, require: true },
+    imgurl: { type: String}
 })
 
 

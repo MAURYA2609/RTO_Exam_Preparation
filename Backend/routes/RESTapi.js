@@ -151,7 +151,8 @@ router.post('/newScore/:username/:score', (req, res, next) => {
 async function addScore(req, res) {
     var newscore = new Scores({
         username: req.params.username,
-        score: req.params.score
+        score: req.params.score,
+        time : new Date()
     })
 
     newscore.save((error, addScore) => {
