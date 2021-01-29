@@ -1,4 +1,5 @@
-
+<div id="bdy">
+	<div id="content">
 
 		<nav class="navbar navbar-expand-sm" style="background-color: #795548;">
 			<ul class="navbar-nav">
@@ -6,39 +7,51 @@
 					<a href="/userHome">Home</a>
 				</li>
 				<li class="nav-item">
-					<a  href="/givetest">Give Exam</a>
+					<a href="/givetest">Give Exam</a>
 				</li>
 			</ul>
 		</nav>
-	<form>
-		
-		<div id="countdown" class="container"></div>
-		<div class="questionbox">
-			<div id = "questionNo"></div>
-			
-			<!-- <div *ngIf="check">                 -->
-                <img  src="" id="qi">                            
-			<!-- </div> -->
-			
-			<div class="option">
-				<input type="radio" value="0" name="Q{{queNo}}" [(ngModel)]="answers[queNo]">
-				<p id="op1"></p>
-			</div>  
-			<div class="option">
-				<input type="radio" value="1" name="Q{{queNo}}" [(ngModel)]="answers[queNo]">
-				<p id="op2"></p>
-			</div>
-			<div class="option">
-				<input type="radio" value="2" name="Q{{queNo}}" [(ngModel)]="answers[queNo]">
-				<p id="op3"></p>
-			</div>
-			<!-- <div><input type="radio"  ></div>
+		<form>
+
+			<div id="countdown" class="container col-sm-2 counter .offset-sm-7"></div>
+			<div class="container col-sm-9 myDiv mt-5 pb-2" id="questionDiv">
+				<div id="questionNo" class="p-3 qstn"></div>
+
+
+				<img src="" id="qi" class="img - thumbnail" style="width:150px">
+
+
+				<div class="option pt-2 op pl-2" style="display: block;">
+					<input type="radio" value="0" name="Q{{queNo}}" [(ngModel)]="answers[queNo]" id="o1"
+						style="display: inline;">
+					<p id="op1" style="display: inline;" class="p-3"></p>
+				</div>
+				<div class="option pt-2 op pl-2" style="display: block;">
+					<input type="radio" value="1" name="Q{{queNo}}" style="display: inline;" id="o2"
+						[(ngModel)]="answers[queNo]">
+					<p id="op2" style="display: inline;" class="p-3"></p>
+				</div>
+				<div class="option pt-2 op pl-2" style="display: block;">
+					<input type="radio" value="2" name="Q{{queNo}}" style="display: inline;" id="o3"
+						[(ngModel)]="answers[queNo]">
+					<p id="op3" style="display: inline;" class="p-3"></p>
+				</div>
+				<!-- <div><input type="radio"  ></div>
 			<p><input type="radio" name="Q{{queNo}}" [(ngModel)]="answers[queNo]" value={{questions[queNo].op2}} id="op2"> </p>
 			<p><input type="radio" name="Q{{queNo}}" [(ngModel)]="answers[queNo]" value={{questions[queNo].op3}} id="op3"> </p> -->
+
+				<input type="button" (click)="checkAnswer()" value="Next Question" class="btn btn-primary mx-auto mt-2">
+			</div>
+		</form>
+		<div id="ans" class="score container col-sm-3 .offset-sm-7">
+			You have scored : 0
 		</div>
-		<input type="button" (click)="getScore()" value="GO" class="button">
-	</form>
-	<div class="showAnswer" *ngIf="avail">
-        <h1> You have scored {{score}} </h1>
-    </div>
-	
+
+	</div>
+
+	<footer id="footer">
+		<p>Copyright © 2021</p>
+		<p>Contact Utsav Parakhiya : +919726247049</p>
+	</footer>
+
+</div>

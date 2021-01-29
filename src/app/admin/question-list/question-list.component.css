@@ -1,9 +1,14 @@
 .myDiv {
     border-radius: 10px;
     background-color: rgb(255, 255, 255);
+    /* border-color: black; */
     margin-top: 5px;
     text-align: center;
     box-shadow: 1px 1px 20px gray;
+}
+
+.op{
+  border : 1px;
 }
 
 .btn {
