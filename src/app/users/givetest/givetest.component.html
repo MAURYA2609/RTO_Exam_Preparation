@@ -1,32 +1,40 @@
 
-	<header>
-		  <div class="heading">
-			QuickQuiz
-		  </div>
-		<nav class="navbar navbar-expand-md navbar-dark " style="background-color: #2D332A;">
-				<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<div class="collapse navbar-collapse" id="navbarCollapse" >
-					<div class="navbar-nav" style="float:right;">
-						<a href="/home" class=" nav-link active">Home</a>
-						<a href="/editprofile"  class="nav-link">My Profile</a>
-						<a href="/myscores" class=" nav-link">My Scores</a>
-						<a (click)="logout()" class=" nav-link float-sm-right" >Logout</a>
-					</div>
-				</div>
-			</nav>
-	</header>
-	<form>
-		<div *ngFor="let que of questions;index as i" class="questionbox" ng-controller="quiz">
-			<h3> Q : {{que.que}}</h3>
-			<div *ngIf="que.hasImg">                
-                <img src="../../../assets/QueImg/{{ que.imgurl }}">                            
-        	</div>
-			<p><input type="radio" name="Q{{i}}" [(ngModel)]="answers[i]" value={{que.op1}} > {{que.op1}}</p>
-			<p><input type="radio" name="Q{{i}}" [(ngModel)]="answers[i]" value={{que.op2}}> {{que.op2}}</p>
-			<p><input type="radio" name="Q{{i}}" [(ngModel)]="answers[i]" value={{que.op3}}> {{que.op3}}</p>
 
+		<nav class="navbar navbar-expand-sm" style="background-color: #795548;">
+			<ul class="navbar-nav">
+				<li class="nav-item">
+					<a href="/userHome">Home</a>
+				</li>
+				<li class="nav-item">
+					<a  href="/givetest">Give Exam</a>
+				</li>
+			</ul>
+		</nav>
+	<form>
+		
+		<div id="countdown" class="container"></div>
+		<div class="questionbox">
+			<div id = "questionNo"></div>
+			
+			<!-- <div *ngIf="check">                 -->
+                <img  src="" id="qi">                            
+			<!-- </div> -->
+			
+			<div class="option">
+				<input type="radio" value="0" name="Q{{queNo}}" [(ngModel)]="answers[queNo]">
+				<p id="op1"></p>
+			</div>  
+			<div class="option">
+				<input type="radio" value="1" name="Q{{queNo}}" [(ngModel)]="answers[queNo]">
+				<p id="op2"></p>
+			</div>
+			<div class="option">
+				<input type="radio" value="2" name="Q{{queNo}}" [(ngModel)]="answers[queNo]">
+				<p id="op3"></p>
+			</div>
+			<!-- <div><input type="radio"  ></div>
+			<p><input type="radio" name="Q{{queNo}}" [(ngModel)]="answers[queNo]" value={{questions[queNo].op2}} id="op2"> </p>
+			<p><input type="radio" name="Q{{queNo}}" [(ngModel)]="answers[queNo]" value={{questions[queNo].op3}} id="op3"> </p> -->
 		</div>
 		<input type="button" (click)="getScore()" value="GO" class="button">
 	</form>

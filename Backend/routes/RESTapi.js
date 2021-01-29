@@ -131,7 +131,7 @@ router.post('/questionList', function(req, res){
 
 router.post('/testQuestions', function(req, res){
     
-    Question.find()
+    Question.aggregate([ { $sample: { size: 15 } } ])
     .exec(function(err,questions){
         if(err){
             console.log("Questions can't be fetched");
