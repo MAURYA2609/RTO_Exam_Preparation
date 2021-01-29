@@ -19,13 +19,14 @@ export class GivetestComponent implements OnInit {
   queNo: number = null;
   sec: number = null;
   temp: string = null;
+  downloadTimer : any;
   check: boolean = false;
-  // interval: NodeJS.Timeout;
+  correct : number;
 
   constructor(private _router: Router,
     private route: ActivatedRoute,
     private _questionService: QuestionService,
-    public cookieservice: CookieService) { }
+    private cookieservice: CookieService) { }
 
   ngOnInit() {
     if (this.cookieservice.get("username") == 'null') {
@@ -36,17 +37,12 @@ export class GivetestComponent implements OnInit {
       data => {
         this.questions = data["quizquestions"]
 
-        // while(document.readyState != "complete"); 
         console.log(document.readyState);
+        this.correct = 0;
+        localStorage.setItem("qNo", 0 + "");
         this.startTest();
-        // console.log(data);
-        // console.log(this.questions);
       }
     );
-
-    // console.log(this.questions);
-
-
   }
 
   logout() {
@@ -84,62 +80,93 @@ export class GivetestComponent implements OnInit {
 
   startTest() {
     this.queNo = 0;
-
-    // var array = this.questions;
-
-    // document.getElementById("questionNo").innerHTML = this.questions[this.queNo].que;
-    // console.log(this.questions);
-    // console.log("hjhjds");
-    // document.getElementById("op1").innerHTML = this.questions[this.queNo].op1;
-    // document.getElementById("op2").innerHTML = this.questions[this.queNo].op2;
-    // document.getElementById("op3").innerHTML = this.questions[this.queNo].op3;
-    // this.check = this.questions[this.queNo].hasImg;
-    // if (this.check)
-    //   (<HTMLImageElement>document.getElementById("qi")).src = "../../../assets/QueImg/" + this.questions[this.queNo].imgurl;
-
     this.timer();
   }
 
+
+
   timer() {
     var timeleft = 0;
-    var i = -1;
+    var i = parseInt(localStorage.getItem("qNo"))-1;
 
     var array = this.questions;
 
+    // var func = this.endTest;
+
     console.log(array);
-    var downloadTimer = setInterval(function () {
+    this.downloadTimer = setInterval(function () {
+      
       if (timeleft <= 0) {
-        timeleft = 5;
+        timeleft = 10;
         console.log(document.readyState);
         i++;
-        this.queNo = i;
-        console.log(i);
-        console.log(this.queNo);
 
-        // console.log(this.questions);
+        localStorage.removeItem("qNo");
+        localStorage.setItem("qNo", i + "");
+
+        if(i==15)
+        {
+          return;
+        }
+        
+        console.log(array[i].ans);
+
         document.getElementById("questionNo").innerHTML = array[i].que;
         document.getElementById("op1").innerHTML = array[i].op1;
         document.getElementById("op2").innerHTML = array[i].op2;
         document.getElementById("op3").innerHTML = array[i].op3;
+        (<HTMLInputElement>document.getElementById("o1")).checked = false;
+        (<HTMLInputElement>document.getElementById("o2")).checked = false;
+        (<HTMLInputElement>document.getElementById("o3")).checked = false;
         this.check = array[i].hasImg;
-        console.log(this.check);
-        console.log(document.getElementById("op1"));
         if (this.check)
         {
-          // (<HTMLImageElement>document.getElementById("qi")).src = "../../../assets/QueImg/" + array[i].imgurl;
           document.getElementById("qi").setAttribute("src", "../../../assets/QueImg/" + array[i].imgurl);
         }
         else{
           document.getElementById("qi").setAttribute("src",array[i].imgurl);
         }
-
-        console.log(array[i]);
-
-        console.log(i);
       } else {
         document.getElementById("countdown").innerHTML = "Time left : " + timeleft;
       }
       timeleft -= 1;
     }, 1000);
+  
+  }
+
+  checkAnswer(){
+    var qn = Number(localStorage.getItem("qNo"));
+    if((<HTMLInputElement>document.getElementById("o1")).checked && this.questions[qn].ans == 0)
+      this.correct++;
+
+    if((<HTMLInputElement>document.getElementById("o2")).checked && this.questions[qn].ans == 1)
+    this.correct++;
+
+    if((<HTMLInputElement>document.getElementById("o3")).checked && this.questions[qn].ans == 2)
+    this.correct++;
+
+    if(qn == 14)
+    {
+      clearInterval(this.downloadTimer);
+      this.endTest();
+    }
+      
+      console.log(qn);
+      localStorage.removeItem("qNo");
+      localStorage.setItem("qNo", qn+1 + "");
+      clearInterval(this.downloadTimer);
+      this.timer();
+
+      document.getElementById("ans").innerHTML = "You have scored : " + this.correct;
+  }
+
+  endTest()
+  {
+    // clearInterval(this.downloadTimer);
+
+    document.getElementById("countdown").hidden = true;
+    document.getElementById("questionDiv").hidden = true;
+    
+    
   }
 }
