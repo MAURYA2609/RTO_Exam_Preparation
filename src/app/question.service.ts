@@ -35,4 +35,18 @@ export class QuestionService {
     }); 
   }
 
+  getMyScores(username:string){
+    return this.http.post('http://127.0.0.1:4000/scores/myScores/'+username,  {
+      observe: 'body',
+      headers: new HttpHeaders().append('Content-Type', 'application/json')
+    });
+  }
+
+  allScores() {
+    return this.http.post('http://127.0.0.1:4000/scores/allScores',  {
+      observe: 'body',
+      headers: new HttpHeaders().append('Content-Type', 'application/json')
+    }); 
+  }
+
 }

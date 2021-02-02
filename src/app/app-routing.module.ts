@@ -7,6 +7,8 @@ import { IndexComponent } from './index/index.component';
 import { SignupComponent } from './signup/signup.component';
 import { GivetestComponent } from './users/givetest/givetest.component';
 import { UserhomeComponent } from './users/userhome/userhome.component';
+import { MyscoresComponent } from './users/myscores/myscores.component';
+import { AllscoresComponent } from './admin/allscores/allscores.component';
 
 const routes: Routes = [
   { path: '',component:IndexComponent,pathMatch:'full'},
@@ -17,6 +19,8 @@ const routes: Routes = [
   { path: 'questionList', component: QuestionListComponent},
   { path: 'givetest', component: GivetestComponent},
   { path: 'userHome', component: UserhomeComponent},
+  { path: 'myscores', component: MyscoresComponent},
+  { path: 'allscores', component: AllscoresComponent}
 ];
 
 @NgModule({

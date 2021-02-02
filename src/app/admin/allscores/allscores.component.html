@@ -32,18 +32,9 @@
         </div>
 
             <div class="container col-sm-9 myDiv mt-5">
-                <br>
-                <div *ngFor="let que of ALLquestions" class="newquestion mt-5">
-                    <!-- <div> -->
-                        <p class="addedQ pt-1">QUESTION : {{que.question}} </p>
-                        <p class="opt"> A) {{que.optionA}}</p>
-                        <p class="opt"> B) {{que.optionB}}</p>
-                        <p class="opt"> C) {{que.optionC}}</p>
-                        <p class="opt"> D) {{que.optionD}}</p>
-                        <p class="corrA"> Correct Answer : {{que.correct}}</p>
-                    <!-- </div> -->
+                <div class="scoreData" *ngFor="let data of scores;index as i">
+                    {{i+1}} ) {{data.username}} has scored {{data.score}} on {{data.time}}
                 </div>
-                <br><br>
             </div>
         </div>
 
