@@ -164,4 +164,35 @@ async function addScore(req, res) {
     })
 }
 
+router.post('/allScores', function(req, res){
+    Scores.find({})
+    .exec(function(err,allscores){
+        if(err){
+            console.log("Questions can't be fetched");
+        }
+        else{
+            console.log(allscores);
+            res.json({
+                
+                allScores: allscores
+            })
+        }
+    });
+});
+
+
+router.post('/myScores/:username', function(req, res){
+    Scores.find({username:req.params.username})
+    .exec(function(err,myscores){
+        if(err){
+            console.log("Scores can't be fetched");
+        }
+        else{
+            res.json({
+                myScores: myscores
+            })
+        }
+    });
+});
+
 module.exports = router;

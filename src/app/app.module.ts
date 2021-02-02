@@ -14,6 +14,9 @@ import { HomeComponent } from './home/home.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AdminhomeComponent } from './admin/adminhome/adminhome.component';
 import { GivetestComponent } from './users/givetest/givetest.component';
+import { MyscoresComponent } from './users/myscores/myscores.component';
+import { UserhomeComponent } from './users/userhome/userhome.component';
+import { AllscoresComponent } from './admin/allscores/allscores.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,10 @@ import { GivetestComponent } from './users/givetest/givetest.component';
     HomeComponent,
     AdminhomeComponent,
     QuestionListComponent,
-    GivetestComponent
+    GivetestComponent,
+    MyscoresComponent,
+    UserhomeComponent,
+    AllscoresComponent
   ],
   imports: [
     BrowserModule,

@@ -51,26 +51,7 @@ export class GivetestComponent implements OnInit {
   }
 
 
-  getScore() {
-    this.score = 0;
-    for (let i = 0; i < this.questions.length; i++) {
-      if (this.questions[i].ans == 0) {
-        this.temp = this.questions[i].op1;
-      }
-      else if (this.questions[i].ans == 1) {
-        this.temp = this.questions[i].op2;
-      }
-      else {
-        this.temp = this.questions[i].op3;
-      }
-
-      if (this.answers[i] == this.temp) {
-        this.score = this.score + 1;
-      }
-    }
-    console.log(this.score);
-    this.avail = true;
-
+  setScore() {
     this._questionService.addScore(this.cookieservice.get("username"), this.score)
       .subscribe(
         data => console.log(data),
@@ -97,7 +78,7 @@ export class GivetestComponent implements OnInit {
     this.downloadTimer = setInterval(function () {
       
       if (timeleft <= 0) {
-        timeleft = 10;
+        timeleft = 45;
         console.log(document.readyState);
         i++;
 
@@ -136,13 +117,13 @@ export class GivetestComponent implements OnInit {
 
   checkAnswer(){
     var qn = Number(localStorage.getItem("qNo"));
-    if((<HTMLInputElement>document.getElementById("o1")).checked && this.questions[qn].ans == 0)
+    if((<HTMLInputElement>document.getElementById("o1")).checked && this.questions[qn].ans == 1)
       this.correct++;
 
-    if((<HTMLInputElement>document.getElementById("o2")).checked && this.questions[qn].ans == 1)
+    if((<HTMLInputElement>document.getElementById("o2")).checked && this.questions[qn].ans == 2)
     this.correct++;
 
-    if((<HTMLInputElement>document.getElementById("o3")).checked && this.questions[qn].ans == 2)
+    if((<HTMLInputElement>document.getElementById("o3")).checked && this.questions[qn].ans == 0)
     this.correct++;
 
     if(qn == 14)
@@ -162,11 +143,8 @@ export class GivetestComponent implements OnInit {
 
   endTest()
   {
-    // clearInterval(this.downloadTimer);
-
     document.getElementById("countdown").hidden = true;
     document.getElementById("questionDiv").hidden = true;
-    
-    
+    this.setScore();
   }
 }

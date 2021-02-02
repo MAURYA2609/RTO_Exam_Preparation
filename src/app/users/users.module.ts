@@ -6,10 +6,11 @@ import { AppRoutingModule } from '../app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { GivetestComponent } from './givetest/givetest.component';
 import { UserhomeComponent } from './userhome/userhome.component';
+import { MyscoresComponent } from './myscores/myscores.component';
 
 
 @NgModule({
-  declarations: [GivetestComponent, UserhomeComponent],
+  declarations: [GivetestComponent, UserhomeComponent, MyscoresComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
