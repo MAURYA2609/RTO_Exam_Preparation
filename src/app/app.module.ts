@@ -1,7 +1,7 @@
+import { LearnquestionsComponent } from './users/learnquestions/learnquestions.component';
 import { QuestionListComponent } from './admin/question-list/question-list.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -29,7 +29,8 @@ import { AllscoresComponent } from './admin/allscores/allscores.component';
     GivetestComponent,
     MyscoresComponent,
     UserhomeComponent,
-    AllscoresComponent
+    AllscoresComponent,
+    LearnquestionsComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +39,7 @@ import { AllscoresComponent } from './admin/allscores/allscores.component';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    NgbModule
+    NgbModule,
   ],
   exports: [
     BrowserModule,

@@ -7,15 +7,37 @@
 					<a href="/userHome">Home</a>
 				</li>
 				<li class="nav-item">
-					<a href="/givetest">Give Exam</a>
+					<a  href="/givetest">Give Exam</a>
 				</li>
+				<li class="nav-item">
+				<a href="/myscores">My Scores</a>
+			</li>
+			<li class="nav-item">
+				<a  href="/learnQuestions">Learn Questions</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" routerLink="/" (click)="logout()">Logout</a>
+			</li>
 			</ul>
 		</nav>
-		<div class="showScores">
-            <div class="scoreData" *ngFor="let data of scores;index as i">
-                {{i+1}} ) You have scored {{data.score}} on {{data.time}}
-            </div>
-	    </div>
+		<div>
+			<table id="customers" class="container mt-5">
+				<tr>
+					<th class="text-center">Test No</th>
+					<th class="text-center">Score</th>
+					<th class="text-center">Date</th>
+					<th class="text-center">Time</th>
+				</tr>
+
+				<tr *ngFor="let data of scores;index as i">
+						<td class="text-center">{{i+1}}</td>
+						<td class="text-center">{{data.score}}</td>
+						<td class="text-center">{{data.time | date}}</td>
+						<td class="text-center">{{data.time | date:'mediumTime'}}</td>
+				</tr>
+
+			</table>
+		</div>
 
 	</div>
 

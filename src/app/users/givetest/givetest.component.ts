@@ -52,7 +52,7 @@ export class GivetestComponent implements OnInit {
 
 
   setScore() {
-    this._questionService.addScore(this.cookieservice.get("username"), this.score)
+    this._questionService.addScore(this.cookieservice.get("username"), this.correct)
       .subscribe(
         data => console.log(data),
         error => console.error(error)

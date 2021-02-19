@@ -1,3 +1,4 @@
+import { LearnquestionsComponent } from './users/learnquestions/learnquestions.component';
 import { QuestionListComponent } from './admin/question-list/question-list.component';
 import { AdminhomeComponent } from './admin/adminhome/adminhome.component';
 import { NgModule } from '@angular/core';
@@ -20,7 +21,8 @@ const routes: Routes = [
   { path: 'givetest', component: GivetestComponent},
   { path: 'userHome', component: UserhomeComponent},
   { path: 'myscores', component: MyscoresComponent},
-  { path: 'allscores', component: AllscoresComponent}
+  { path: 'allscores', component: AllscoresComponent},
+  { path: 'learnQuestions', component: LearnquestionsComponent}
 ];
 
 @NgModule({

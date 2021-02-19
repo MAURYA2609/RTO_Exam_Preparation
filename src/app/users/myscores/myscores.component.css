@@ -1,8 +1,6 @@
 .myDiv {
-    /* border-radius: 10px; */
     margin-top: 1px;
     background-color: gray(255, 255, 255);
-    /* text-align: center; */
     box-shadow: 1px 1px 20px gray;
 }
 
@@ -13,7 +11,6 @@ h1, p{
 
 .btn {
     font-size: 16px;
-    /* padding: 5px 15px; */
     color: #795548;
     background:rgb(233, 229, 229);
     border: 0 none;
@@ -21,7 +18,6 @@ h1, p{
     -webkit-border-radius: 5px;
     border-radius: 5px; 
     font-family: 'Lucida Sans', sans-serif;
-    /* font-size: 15px; */
 }
 
 p{
@@ -32,9 +28,6 @@ p{
     border-radius: 5px; 
     font-family: 'Lucida Sans', sans-serif;
 }
-
-
-
 
 #content{
     padding-bottom: 10rem;   
@@ -69,9 +62,127 @@ a:link, a:visited {
 
   h1 {
     background-color: #795548;
-    /* margin-bottom: 5px; */
     color: whitesmoke;
     font-family: "Segoe UI", Arial, sans-serif;
     font-weight: 400;
     padding: 15px;
 }
+
+#customers {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    /* border-radius: 5px; */
+    box-shadow:2px 2px 20px gray;
+  }
+  
+  #customers td, #customers th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  #customers tr:nth-child(even){background-color: #f2f2f2;}
+  
+  #customers tr:hover {background-color: #ddd;}
+  
+  #customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color:  #795548;
+    color: white;
+  }
+
+  .myDiv {
+    margin-top: 1px;
+    background-color: gray(255, 255, 255);
+    box-shadow: 1px 1px 20px gray;
+  }
+  
+  .btn {
+    font-size: 16px;
+    color: #795548;
+    background:rgb(233, 229, 229);
+    border: 0 none;
+    cursor: pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px; 
+    font-family: 'Lucida Sans', sans-serif;
+  }
+  
+  p, .qstn  {
+    font-size: 16px;
+    color: #795548;
+    border: 0 none;
+    -webkit-border-radius: 5px;
+    border-radius: 5px; 
+    font-family: 'Lucida Sans', sans-serif;
+  }
+
+  .btn:hover{
+    box-shadow: 1px 1px 10px black;
+    cursor: pointer;
+  }
+  
+  #content{
+    padding-bottom: 10rem;   
+  }
+  
+  #bdy{
+    position: relative;
+  min-height: 100vh;
+  }
+  
+  #footer{
+    position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: whitesmoke; 
+  }
+  
+  #footer p {
+  text-align: center;
+  padding: 5px;
+  font-family: Georgia, serif;
+  font-size: 16px;
+  }
+  
+  a:link, a:visited {
+    color: white;
+    padding: 5px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+  }
+  
+  h1 {
+    background-color: #795548;
+    color: whitesmoke;
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-weight: 400;
+    padding: 15px;
+  }
+  
+    .myDiv {
+      border-radius: 10px;
+      background-color: rgb(255, 255, 255);
+      /* border-color: black; */
+      margin-top: 5px;
+      /* text-align: center; */
+      box-shadow: 1px 1px 20px gray;
+  }
+  
+    
+    .navbar-nav a {
+      font-size: 20px;
+      text-decoration: none;
+      border-radius:10px;
+      cursor:pointer;
+      border:none;
+      float: right;
+      margin:5px 5px;
+    }
+    
+    .btn{
+      display: block;
+    }

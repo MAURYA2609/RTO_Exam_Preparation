@@ -1,0 +1,52 @@
+<div id="bdy">
+    <div id="content">
+
+        <nav class="navbar navbar-expand-sm" style="background-color: #795548;">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a href="/userHome">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/givetest">Give Exam</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/myscores">My Scores</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/learnQuestions">Learn Questions</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/" (click)="logout()">Logout</a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="container col-sm-9 mt-5">
+            <br>
+            <div *ngFor="let que of ALLquestions;index as i" class="newquestion myDiv p-4 mt-4">
+                <p class="addedQ p-1">QUESTION {{i+1}} : {{que.que}} </p>
+                <div *ngIf="que.hasImg == true">
+                    <img src="../../../assets/QueImg/{{que.imgurl}}" id="qi" class="img - thumbnail p-2"
+                        style="width:150px">
+                </div>
+                <p class="opt p-1"> A) {{que.op1}}</p>
+                <p class="opt p-1"> B) {{que.op2}}</p>
+                <p class="opt p-1"> C) {{que.op3}}</p>
+                <div [ngSwitch]="que.ans" class="correctAnswer p-1">
+                    <ng-container *ngSwitchCase="1">Correct Answer : A</ng-container>
+                    <ng-container *ngSwitchCase="2">Correct Answer : B</ng-container>
+                    <ng-container *ngSwitchCase="0">Correct Answer : C</ng-container>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+    <footer id="footer">
+        <p>Copyright © 2021</p>
+        <p>Contact Utsav Parakhiya : +919726247049</p>
+    </footer>
+
+</div>
