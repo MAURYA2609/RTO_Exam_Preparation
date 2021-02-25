@@ -45,15 +45,29 @@
 						[(ngModel)]="answers[queNo]">
 					<p id="op3" style="display: inline;" class="p-3"></p>
 				</div>
-				<!-- <div><input type="radio"  ></div>
-			<p><input type="radio" name="Q{{queNo}}" [(ngModel)]="answers[queNo]" value={{questions[queNo].op2}} id="op2"> </p>
-			<p><input type="radio" name="Q{{queNo}}" [(ngModel)]="answers[queNo]" value={{questions[queNo].op3}} id="op3"> </p> -->
-
 				<input type="button" (click)="checkAnswer()" value="Next Question" class="btn btn-primary mx-auto mt-2">
 			</div>
 		</form>
 		<div id="ans" class="score container col-sm-3 .offset-sm-7">
 			You have scored : 0
+		</div>
+		<div id="wrongAns" class="container col-sm-9 myDiv mt-5 pb-2" hidden="true">
+            <br>
+            <div *ngFor="let que of wrong;index as i" class="newquestion myDiv p-4 mt-4">
+                <p class="addedQ p-1">QUESTION {{i+1}} : {{que.que}} </p>
+                <div *ngIf="que.hasImg == true">
+                    <img src="../../../assets/QueImg/{{que.imgurl}}" id="qi" class="img - thumbnail p-2"
+                        style="width:150px">
+                </div>
+                <p class="opt p-1"> A) {{que.op1}}</p>
+                <p class="opt p-1"> B) {{que.op2}}</p>
+                <p class="opt p-1"> C) {{que.op3}}</p>
+                <div [ngSwitch]="que.ans" class="correctAnswer p-1">
+                    <ng-container *ngSwitchCase="1">Correct Answer : A</ng-container>
+                    <ng-container *ngSwitchCase="2">Correct Answer : B</ng-container>
+                    <ng-container *ngSwitchCase="0">Correct Answer : C</ng-container>
+                </div>
+            </div>
 		</div>
 
 	</div>

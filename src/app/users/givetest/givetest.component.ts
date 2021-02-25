@@ -22,6 +22,7 @@ export class GivetestComponent implements OnInit {
   downloadTimer : any;
   check: boolean = false;
   correct : number;
+  public wrong: any = [];
 
   constructor(private _router: Router,
     private route: ActivatedRoute,
@@ -90,8 +91,6 @@ export class GivetestComponent implements OnInit {
           return;
         }
         
-        console.log(array[i].ans);
-
         document.getElementById("questionNo").innerHTML = array[i].que;
         document.getElementById("op1").innerHTML = array[i].op1;
         document.getElementById("op2").innerHTML = array[i].op2;
@@ -120,11 +119,14 @@ export class GivetestComponent implements OnInit {
     if((<HTMLInputElement>document.getElementById("o1")).checked && this.questions[qn].ans == 1)
       this.correct++;
 
-    if((<HTMLInputElement>document.getElementById("o2")).checked && this.questions[qn].ans == 2)
+    else if((<HTMLInputElement>document.getElementById("o2")).checked && this.questions[qn].ans == 2)
     this.correct++;
 
-    if((<HTMLInputElement>document.getElementById("o3")).checked && this.questions[qn].ans == 0)
+    else if((<HTMLInputElement>document.getElementById("o3")).checked && this.questions[qn].ans == 0)
     this.correct++;
+
+    else
+      this.wrong.push(this.questions[qn]);
 
     if(qn == 14)
     {
@@ -141,10 +143,17 @@ export class GivetestComponent implements OnInit {
       document.getElementById("ans").innerHTML = "You have scored : " + this.correct;
   }
 
+  printWrong()
+  {
+    console.log("hello");
+  }
+
   endTest()
   {
     document.getElementById("countdown").hidden = true;
     document.getElementById("questionDiv").hidden = true;
+    document.getElementById("wrongAns").hidden = false;
+    this.printWrong();
     this.setScore();
   }
 }
